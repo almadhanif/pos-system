@@ -3,7 +3,9 @@ import './index.css';
 import logo from './images/widatech_logo.jpg';
 import { FaHome } from 'react-icons/fa';
 import { FaFileInvoice } from 'react-icons/fa';
-// import InvoiceForm from './components/InvoiceForm';
+import { HiOutlineDocumentReport } from 'react-icons/hi';
+import TransitionsModal from './components/Modal';
+import DataGridDemo from './components/DataGridDemo';
 
 function App() {
   return (
@@ -33,27 +35,43 @@ function App() {
           </div>
         </div>
       </aside>
-      {/* <div className="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto">
-        <header className="sticky top-0 flex w-full bg-white z-999 drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
-          <div className="flex items-center justify-between flex-grow px-4 py-4 shadow-2 md:px-5 ">
-            <div className="flex items-center justify-between">
-              <h1 className="justify-start">Dashboard</h1>
-            </div>
-          </div>
-        </header>
+      <div className="relative flex flex-col flex-1 overflow-x-hidden overflow-y-auto">
+        <header className="sticky top-0 flex w-full bg-white z-999 drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none"></header>
         <main>
           <div className="p-4 mx-auto max-w-screen-2xl md:p-6 2xl:p-4">
-            <div className="grid grid-cols-1 gap-4 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
-              <div className="rounded-lg border border-stroke bg-white px-7.5 py-6 shadow-default ">
-                <h2>ini teks</h2>
+            <div className="flex justify-between">
+              <div>
+                <h2 className="text-2xl font-bold">Dashboard</h2>
+                <p className="">
+                  Manage and monitoring your sales with one page
+                </p>
               </div>
-              <div className="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default ">
-                <InvoiceForm />
+              <div className="flex space-x-6">
+                <TransitionsModal />
+                <div className="h-10 w-36 bg-slate-300 rounded-xl">
+                  <button className="flex items-center p-2 mx-auto space-x-1 ">
+                    <HiOutlineDocumentReport />
+                    <p className="text-sm font-medium">Financial Report</p>
+                  </button>
+                </div>
               </div>
+            </div>
+            <div className="grid grid-cols-1 mt-3 gap-4 md:gap-6 xl:grid-cols-2 2xl:gap-7.5">
+              <div className="bg-white border rounded-lg border-stroke shadow-default ">
+                <h3 className="p-2 text-lg font-medium">Graph</h3>
+              </div>
+              <div className="bg-white border rounded-lg border-stroke shadow-default ">
+                <h3 className="p-2 text-lg font-medium">Invoices Data</h3>
+                <DataGridDemo />
+              </div>
+              <div className="bg-white border rounded-lg border-stroke shadow-default ">
+                <h3>ini teks</h3>
+              </div>
+              <div className="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default "></div>
             </div>
           </div>
         </main>
-      </div> */}
+      </div>
     </div>
   );
 }

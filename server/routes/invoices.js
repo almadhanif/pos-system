@@ -4,34 +4,13 @@ const router = express.Router();
 const pool = require('../config/db');
 
 // Endpoint untuk mendapatkan detail invoice dan produk terkait
-router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-
-  if (!id) {
-    return res.status(400).send({ error: 'Invoice ID is required' });
-  }
-
+router.get('/', async (req, res) => {
   try {
-    // Get the invoice
-    const invoiceResult = await pool.query(
-      'SELECT * FROM invoices WHERE id = $1',
-      [id]
-    );
-    const invoice = invoiceResult.rows[0];
-    if (!invoice) {
-      return res.status(404).send({ error: 'Invoice not found' });
-    }
-
-    // Get the products for this invoice
-    const productsResult = await pool.query(
-      'SELECT * FROM invoice_products WHERE invoice_id = $1',
-      [id]
-    );
-    const products = productsResult.rows;
-
-    res.json({ invoice, products });
+    const result = await pool.query('SELECT * FROM invoices');
+    res.status(200).json(result.rows);
   } catch (error) {
-    res.status(500).send({ error: 'Failed to fetch invoice details' });
+    console.error('Error fetching invoices:', error);
+    res.status(500).send({ error: 'Failed to fetch invoices' });
   }
 });
 

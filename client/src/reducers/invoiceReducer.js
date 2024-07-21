@@ -22,7 +22,7 @@ const invoiceSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(addInvoice.fulfilled, (state, action) => {
-        state.invoices.push(action.payload);
+        state.invoices.push(action.payload); // Pastikan data baru ditambahkan ke state
       })
       .addCase(addInvoice.rejected, (state, action) => {
         state.error = action.error.message;
